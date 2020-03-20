@@ -451,8 +451,8 @@ export async function upgradeAsync(
   // Clear metro bundler cache
   log.addNewLineIfNone();
   log(chalk.bold.underline('Clearing the packager cache...'));
-  await Project.startMetroAsync(projectRoot, { reset: true, nonPersistent: true });
-  await Project.stopMetroAsync(projectRoot);
+  await Project.startAsync(projectRoot, { reset: true, nonPersistent: true });
+  await Project.stopAsync(projectRoot);
 
   log.addNewLineIfNone();
   log(chalk.underline.bold.green(`Automated upgrade steps complete.`));
