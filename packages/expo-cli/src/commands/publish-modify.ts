@@ -37,7 +37,10 @@ export default function(program: Command) {
           throw new Error('You must specify a publish id. You can find ids using publish:history.');
         }
         try {
-          const result = await setPublishToChannelAsync(projectDir, options);
+          const result = await setPublishToChannelAsync(
+            projectDir,
+            options as { releaseChannel: string; publishId: string }
+          );
           let tableString = table.printTableJson(
             result.queryResult,
             'Channel Set Status ',
