@@ -7,8 +7,9 @@ import {
   DetailOptions,
   HistoryOptions,
   Publication,
+  getPublicationDetailAsync,
   getPublishHistoryAsync,
-  printPublishDetailsAsync,
+  printPublicationDetailAsync,
 } from './utils/PublishUtils';
 
 const HORIZ_CELL_WIDTH_SMALL = 15;
@@ -92,6 +93,7 @@ export default (program: any) => {
         throw new Error('--publish-id must be specified.');
       }
 
-      await printPublishDetailsAsync(projectDir, options);
+      const detail = await getPublicationDetailAsync(projectDir, options);
+      await printPublicationDetailAsync(detail, options);
     });
 };
